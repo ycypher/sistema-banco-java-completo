@@ -1,0 +1,39 @@
+CREATE TABLE IF NOT EXISTS usuarios (
+    id SERIAL PRIMARY KEY,
+    login VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(64) NOT NULL,
+    nome VARCHAR(200) NOT NULL,
+    perfil VARCHAR(20) NOT NULL CHECK (perfil IN ('ADMIN', 'OPERADOR'))
+);
+
+CREATE TABLE IF NOT EXISTS clientes (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(200) NOT NULL,
+    cpf VARCHAR(14) NOT NULL UNIQUE,
+    telefone VARCHAR(20)
+);
+
+CREATE TABLE IF NOT EXISTS contas_correntes (
+    id SERIAL PRIMARY KEY,
+    numero_conta VARCHAR(20) NOT NULL UNIQUE,
+    saldo NUMERIC(15,2) NOT NULL DEFAULT 0.00,
+    limite_cheque NUMERIC(15,2) NOT NULL DEFAULT 0.00,
+    cliente_id INTEGER NOT NULL REFERENCES clientes(id)
+);
+
+CREATE TABLE IF NOT EXISTS contas_poupanca (
+    id SERIAL PRIMARY KEY,
+    numero_conta VARCHAR(20) NOT NULL UNIQUE,
+    saldo NUMERIC(15,2) NOT NULL DEFAULT 0.00,
+    taxa_rendimento NUMERIC(8,4) NOT NULL DEFAULT 0.005,
+    cliente_id INTEGER NOT NULL REFERENCES clientes(id)
+);
+
+CREATE TABLE IF NOT EXISTS transacoes (
+    id SERIAL PRIMARY KEY,
+    conta_id INTEGER NOT NULL,
+    tipo_conta VARCHAR(20) NOT NULL,
+    descricao VARCHAR(500) NOT NULL,
+    valor NUMERIC(15,2) NOT NULL,
+    data_hora TIMESTAMP NOT NULL DEFAULT NOW()
+);

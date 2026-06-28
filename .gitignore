@@ -1,0 +1,17 @@
+target/
+bin/
+out/
+*.class
+
+.vscode/
+*.iml
+.settings/
+.classpath
+.project
+
+Thumbs.db
+.DS_Store
+*.log
+
+src/main/resources/db.properties
+.env
