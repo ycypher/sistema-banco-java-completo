@@ -4,15 +4,11 @@ Sistema bancario desktop desenvolvido em Java com interface grafica Swing e pers
 
 ## Descricao
 
-Aplicacao desktop que gerencia contas bancarias (corrente e poupanca), clientes, usuarios e operacoes financeiras (deposito, saque, transferencia, rendimento). Toda a interacao ocorre por meio de telas Swing, sem uso de terminal ou console. Os dados sao persistidos em banco PostgreSQL com acesso via JDBC na camada DAO.
+Aplicacao que gerencia contas bancarias, clientes, usuarios e operacoes financeiras. Toda a interacao ocorre por meio de telas Swing, sem uso de terminal ou console. Os dados sao persistidos em banco PostgreSQL com acesso via JDBC na camada DAO.
 
 ## Tecnologias Utilizadas
 
 - Java 21
-- Maven 3.x
-- PostgreSQL 14+
-- JDBC (driver postgresql 42.7.3)
-- Swing (nativo Java)
 - IDE: Visual Studio Code
 
 ## Como Compilar e Executar
@@ -63,20 +59,6 @@ Ou diretamente pelo Maven:
 ```bash
 mvn exec:java -Dexec.mainClass="banco.app.SistemaBanco"
 ```
-
-### Executar no VSCode
-
-Abra o projeto no VSCode com a extensao "Extension Pack for Java" instalada e execute a classe `banco.app.SistemaBanco`.
-
-## Login Inicial
-
-| Campo | Valor |
-|-------|-------|
-| Login | `victorhugo` |
-| Senha | `20252021847` |
-| Perfil | ADMIN |
-
-> Este usuario e criado automaticamente na primeira execucao e nao pode ser excluido pelo sistema.
 
 ## Estrutura de Pacotes
 
@@ -153,5 +135,4 @@ Operavel (interface)
 ## Aluno
 
 **Nome:** Victor Hugo Rodrigues Silverio
-**Turma:** 2 Modulo - POO
-**Instituicao:** CEFET-MG - Unidade Campo Belo
+**Turma:** 2 periodo
